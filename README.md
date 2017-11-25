@@ -1,1 +1,5 @@
-# mithyalabs_test
+# Mithya Labs Test
+
+# Requirments
+- Node.js
+- MongoDB
