@@ -1,0 +1,63 @@
+<div ng-show="hotels.loaded" class="col col-lg-12 col-xl-12">
+
+    <ul class="list-group col col-lg-12 col-xl-12">
+        <li ng-repeat="hotel in hotels.hotels" class="list-group-item">    
+            <h4><a href="/hotel/{{hotel.id}}">{{hotels.pg*10 + $index - 9}}.  {{ hotel.name || hotel.title}}</a></h4>
+            <p class="text-right">{{hotel.address}}</p>
+            <p class="text-justify">{{hotel.content}}</p>
+        </li>
+
+        <br>
+    </ul>
+
+
+
+
+    <nav aria-label="..." class="text-center">
+        <ul class="pagination">
+            <li class="page-item disabled" ng-if="hotels.pg == 1">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item" ng-if="hotels.pg > 1">
+                <a class="page-link" href="/{{hotels.pg-1}}" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item" ng-if="hotels.pg > 4">
+                <a class="page-link" href="/{{hotels.pg-4}}">{{hotels.pg-4}}</a>
+            </li>
+            <li class="page-item" ng-if="hotels.pg > 3">
+                <a class="page-link" href="/{{hotels.pg-3}}">{{hotels.pg-3}}</a>
+            </li>
+            <li class="page-item" ng-if="hotels.pg > 2">
+                <a class="page-link" href="/{{hotels.pg-2}}">{{hotels.pg-2}}</a>
+            </li>
+            <li class="page-item" ng-if="hotels.pg > 1">
+                <a class="page-link" href="/{{hotels.pg-1}}">{{hotels.pg-1}}</a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" href="/{{hotels.pg}}">{{hotels.pg}}<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="/{{hotels.pg+1}}">{{hotels.pg+1}}</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="/{{hotels.pg+2}}">{{hotels.pg+2}}</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="/{{hotels.pg+3}}">{{hotels.pg+3}}</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="/{{hotels.pg+4}}">{{hotels.pg+4}}</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="/{{(hotels.pg-1)+2}}">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="spinner" ng-show="!hotels.loaded">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+</div>

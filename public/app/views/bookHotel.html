@@ -1,0 +1,71 @@
+<div ng-show="book.loaded" class="col col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    
+    
+        <h2 class="text-center">{{book.hotel.name}}</h2>
+        
+
+        <p ng-show="!book.saved" class="text-right">Saving</p>
+        <p ng-show="book.saved" class="text-right">Saved</p>
+    
+        <form ng-submit="book.tryBookHotel();">
+    
+
+            <div class="form-group col col-lg-6">
+                <label for="rooms">Rooms:</label>
+                <select class="form-control" id="rooms" name="rooms" ng-model="book.rooms" ng-change="book.calcPrice()">
+                    <option value="11">1 Rooms, 1 Adults</option>
+                    <option value="12">1 Rooms, 2 Adults</option>
+                    <option value="22">2 Rooms, 2 Adults</option>
+                    <option value="24">2 Rooms, 4 Adults</option>
+                    <option value="33">3 Rooms, 3 Adults</option>
+                    <option value="36">3 Rooms, 6 Adults</option>
+                  </select>
+            </div>
+    
+            <div class="form-group col col-lg-6">
+                <label for="checkin">Check In:</label>
+                <input type="date" class="form-control" name="checkin" id="checkin" placeholder="" ng-change="book.calcPrice()" ng-model="book.checkin">
+            </div>
+
+            <div class="form-group col col-lg-6">
+                <label for="checkout">Check Out:</label>
+                <input type="date" class="form-control" name="checkout" id="checkout" placeholder="" ng-change="book.calcPrice()" ng-model="book.checkout">
+            </div>
+            <div class="col col-lg-12">
+                <p class="text-bold"><strong>Total Amount: Rs. {{book.totalAmount}}</strong></p>
+            </div>
+
+            <div class="col col-lg-6"><button type="submit" class="btn btn-primary">Submit</button></div>
+    
+            
+        </form>
+        <br>
+        <div class="show-hide-message col col-lg-12">
+            <br>
+            <div class="alert alert-success" ng-show="book.successMsg">
+                {{book.successMsg}}
+            </div>
+            <div class="alert alert-danger" ng-show="book.errorMsg">
+                {{book.errorMsg}}
+            </div>
+        </div>
+
+
+
+        <div class="spinner" ng-show="!book.loaded">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+
+<div ng-show="hotel.loaded" class="container">
+
+
+    <h2>{{hotel.hotel.name}}</h2>
+
+    <div class="row">
+        <div class="col col-lg-2 col-md-2 col-sm-3 col-xs-4">
+            <p style="font-size:20px;">Address:</p>
+        </div>
+        <div class="col col-lg-10 col-md-10 col-sm-9 col-xs-8">
+            <p> {{hotel.hotel.address}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-2 col-md-2 col-sm-3 col-xs-4">
+            <p style="font-size:20px;">Summary:</p>
+        </div>
+        <div class="col col-lg col-md-10 col-sm-9 col-xs-8">
+            <p> {{hotel.hotel.content}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-2 col-md-2 col-sm-3 col-xs-4">
+            <p style="font-size:20px;">Contact:</p>
+        </div>
+        <div class="col col-lg-10 col-md-10 col-sm-9 col-xs-8">
+            <p> {{hotel.hotel.phone}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-2 col-md-2 col-sm-3 col-xs-4">
+            <p style="font-size:20px;">Price:</p>
+        </div>
+        <div class="col col-lg-10 col-md-10 col-sm-9 col-xs-8">
+            <p> Rs. {{hotel.hotel.price}}</p>
+        </div>
+    </div>
+    
+    
+
+
+
+        <a href="/book/{{hotel.hotel.id}}"><button class="btn btn-primary" ng-show="main.isLoggedIn">Book</button></a>
+</div>
+
+
+
+<div class="spinner" ng-show="!hotel.loaded">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+</div>

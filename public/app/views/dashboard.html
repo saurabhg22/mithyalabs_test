@@ -1,0 +1,67 @@
+<div ng-show="dashboard.loaded">
+    <h3>Your Bookings</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Hotel Name</th>
+            <th scope="col">Check In</th>
+            <th scope="col">Check Out</th>
+            <th scope="col">Rooms</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="book in dashboard.booked">
+            <th scope="row">{{$index+1}}</th>
+            <td><a href="/hotel/{{book.id}}">{{book.name}}</a></td>
+            <td>{{book.checkin}}</td>
+            <td>{{book.checkout}}</td>
+            <td>{{book.rooms[0]}} Rooms,{{book.rooms[1]}} Adults</td>
+          </tr>
+          <tr>
+        </tbody>
+      </table>
+
+      <hr>
+      <br>
+
+      <h3>These bookings are still incomplete.</h3>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Hotel Name</th>
+              <th scope="col">Check In</th>
+              <th scope="col">Check Out</th>
+              <th scope="col">Rooms</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="incomplete in dashboard.incomplete">
+              <th scope="row">{{$index+1}}</th>
+              <td><a href="/book/{{incomplete.id}}">{{incomplete.name}}</a></td>
+              <td>{{incomplete.checkin}}</td>
+              <td>{{incomplete.checkout}}</td>
+              <td><p ng-show="incomplete.rooms">{{incomplete.rooms[0]}} Rooms,{{incomplete.rooms[1]}} Adults</p></td>
+            </tr>
+            <tr>
+          </tbody>
+        </table>
+
+        <hr>
+        <br>
+  
+        <h3 class="col col-lg-10 col-xl-8 col-lg-offset-1 col-xl-offset-2">Recommended hotels based on your recent activities.</h3>
+
+        <ul class="list-group col col-lg-10 col-xl-8 col-lg-offset-1 col-xl-offset-2">
+          <li ng-repeat="hotel in dashboard.related" class="list-group-item">    
+              <h4><a href="/hotel/{{hotel.id}}">{{ hotel.name || hotel.title}}</a></h4>
+              <p class="text-right">{{hotel.address}}</p>
+              <p class="text-justify">{{hotel.content}}</p>
+          </li>
+  
+          <br>
+      </ul>
+  
+
+</div>
